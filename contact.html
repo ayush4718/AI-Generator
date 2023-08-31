@@ -15,12 +15,15 @@ const handleClick = async (id) => {
         element.style.backgroundColor = element.id === id ? "#dfdfdf6e" : "#fff";
     });
     
-    const divElement = document.getElementById("right-side-div");
     if(id==="img-genrator"){
-        divElement.innerHTML='<iframe src="https://lambdalabs-stable-diffusion-image-variations.hf.space/" title="lambdalabs-stable-diffusion-image-variations" scrolling="no" class="iframe"></iframe>';
-    }else{
-        divElement.innerHTML = " ";
+        const divElement = document.getElementById("right-side-main");
+        var iframeElement = document.createElement("iframe");
+        iframeElement.src = "https://lambdalabs-stable-diffusion-image-variations.hf.space/";
+        iframeElement.className = "iframe";
+        await divElement.appendChild(iframeElement)
     }
+    // <iframe src="https://lambdalabs-stable-diffusion-image-variations.hf.space/"
+    //             title="lambdalabs-stable-diffusion-image-variations" class="iframe"></iframe>
 }
 
 </script>
@@ -28,11 +31,11 @@ const handleClick = async (id) => {
 <body class="body">
     <header class="main-header">
         <div class="header-div">
-            <a href="#" class="header-heading">AI Generator</a>
+            <a href="/" class="header-heading">AI Generator</a>
             <div class="header-buttons">
-                <a href="#">Home</a>
+                <a href="./index.html">Home</a>
                 <a href="./about.html">About</a>
-                <a href="./contact.html">Contact us</a>
+                <a href="#">Contact us</a>
             </div>
         </div>
     </header>
@@ -40,7 +43,7 @@ const handleClick = async (id) => {
         <div class="side-bar">
             <div class="main-cat">
                 <span class="main-cat-heading">AI Content Generator</span>
-                <span class="main-subCat" id="img-genrator" onclick="handleClick('img-genrator')" style="background-color: #dfdfdf6e;">Image
+                <span class="main-subCat" id="img-genrator" onclick="handleClick('img-genrator')">Image
                     Generator</span>
                 <span class="main-subCat" id="voice-genrator"
                     onclick="handleClick('voice-genrator')">Voice Generator</span>
@@ -48,8 +51,27 @@ const handleClick = async (id) => {
                     Generator</span>
             </div>
         </div>
-        <div class="right-side-main" id="right-side-div">
-            <iframe src="https://lambdalabs-stable-diffusion-image-variations.hf.space/" title="lambdalabs-stable-diffusion-image-variations" scrolling="no" class="iframe"></iframe>
+        <div class="right-side-main">
+            <div class="header">
+                <h1>Contact Us</h1>
+            </div>
+        
+            <div class="container">
+                <div class="contact-form">
+                    <form action="#" method="post">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" class="input-field" required>
+        
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" name="email" class="input-field" required>
+        
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" class="input-field" rows="4" required></textarea>
+        
+                        <input type="submit" value="Submit" class="submit-button">
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
     <footer>

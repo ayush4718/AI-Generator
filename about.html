@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI- Generator</title>
+    <link rel="stylesheet" href="./index.css" />
+</head>
+<script>
+const handleClick = async (id) => {
+    const elementById = document.getElementById(id);
+    const elementsByClass = document.querySelectorAll('.main-subCat');
+    elementsByClass.forEach(element => {
+        element.style.backgroundColor = element.id === id ? "#dfdfdf6e" : "#fff";
+    });
+    
+    if(id==="img-genrator"){
+        const divElement = document.getElementById("right-side-main");
+        var iframeElement = document.createElement("iframe");
+        iframeElement.src = "https://lambdalabs-stable-diffusion-image-variations.hf.space/";
+        iframeElement.className = "iframe";
+        await divElement.appendChild(iframeElement)
+    }
+    // <iframe src="https://lambdalabs-stable-diffusion-image-variations.hf.space/"
+    //             title="lambdalabs-stable-diffusion-image-variations" class="iframe"></iframe>
+}
+
+</script>
+
+<body class="body">
+    <header class="main-header">
+        <div class="header-div">
+            <a href="/" class="header-heading">AI Generator</a>
+            <div class="header-buttons">
+                <a href="./index.html">Home</a>
+                <a href="#">About</a>
+                <a href="./contact.html">Contact us</a>
+            </div>
+        </div>
+    </header>
+    <section class="main-section">
+        <div class="side-bar">
+            <div class="main-cat">
+                <span class="main-cat-heading">AI Content Generator</span>
+                <span class="main-subCat" id="img-genrator" onclick="handleClick('img-genrator')">Image
+                    Generator</span>
+                <span class="main-subCat" id="voice-genrator"
+                    onclick="handleClick('voice-genrator')">Voice Generator</span>
+                <span class="main-subCat" id="content" onclick="handleClick('content')">Contant
+                    Generator</span>
+            </div>
+        </div>
+        <div class="right-side-main">
+            <header class="AboutHeader">
+                <h1 class="aboutHeading">About Us</h1>
+            </header>
+
+            <div class="container">
+                <p>Welcome to AI Image Generator, your creative companion in the digital world. Our platform brings together the marvels of artificial intelligence and the artistry of human imagination.</p>
+            
+                <p>Our journey began with a simple idea: to make image creation accessible to everyone, regardless of their artistic skills or technical knowledge. We believe that everyone should have the power to bring their ideas to life through visuals.</p>
+            
+                <p>At AI Image Generator, we are driven by innovation and a commitment to excellence. Our AI models have been trained on vast datasets and fine-tuned to ensure the highest quality output. Whether you're a graphic designer, marketer, student, or simply someone with a creative vision, our tools are designed to cater to your needs.</p>
+            
+                <p>We understand the importance of creativity in the modern digital landscape. Our aim is to empower you with the tools to stand out, tell your story, and capture the essence of your ideas in pixel-perfect images.</p>
+            
+                <p>Join us on this exciting journey as we continue to push the boundaries of AI-powered image generation. We're dedicated to providing you with an ever-evolving suite of creative tools and resources, and we can't wait to see the incredible things you'll create.</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="first-footer">
+            Copyright © 2020 Lifestylenama
+        </div>
+        <div class="secound-footer">
+            <a href="#about">About Us</a>
+            <a href="#terms">Terms</a>
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </footer>
+</body>
+
+</html>
